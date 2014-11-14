@@ -7,6 +7,8 @@ var uglify = require('gulp-uglify');
 var order = require("gulp-order");
 var smushit = require('gulp-smushit');
 var jshint = require('gulp-jshint');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 // Concat & Minify JS
 gulp.task('minify', function(){
@@ -30,7 +32,8 @@ gulp.task('sass', function () {
     return gulp.src('scss/main.scss')
         .pipe(sass({sourcemap: true, sourcemapPath: '../scss'}))
         .on('error', function (err) { console.log(err.message); })
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('css'))
+        .pipe(reload({stream:true}));
 });
 
 gulp.task('smush', function () {
@@ -46,7 +49,13 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('default', ['sass'], function () {
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: "gulp_project.dev"
+    });
+});
+
+gulp.task('default', ['sass', 'browser-sync'], function () {
     gulp.watch("scss/**/*.scss", ['sass']);
     gulp.watch('js/src/**/*.js', ['lint', 'minify']);
 });
