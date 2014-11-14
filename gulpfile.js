@@ -5,7 +5,8 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var order = require("gulp-order");
-var smushit 	= require('gulp-smushit');
+var smushit = require('gulp-smushit');
+var jshint = require('gulp-jshint');
 
 // Concat & Minify JS
 gulp.task('minify', function(){
@@ -36,4 +37,11 @@ gulp.task('smush', function () {
     return gulp.src('img/*.{jpg,png}')
         .pipe(smushit())
         .pipe(gulp.dest('img'));
+});
+
+gulp.task('lint', function() {
+  return gulp.src(['js/src/**/*.js', '!js/src/vendor/*.js']) 
+  	// lint all js files but what's in the vendor dir
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
 });
