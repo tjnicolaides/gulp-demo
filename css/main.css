@@ -5370,7 +5370,9 @@ button.close {
     display: none !important; } }
 body {
   padding-top: 50px;
-  padding-bottom: 20px;
-  background: purple; }
+  padding-bottom: 20px; }
+
+.jumbotron {
+  background: url(../img/sky.jpg); }
 
 /*# sourceMappingURL=main.css.map */
