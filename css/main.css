@@ -5373,6 +5373,7 @@ body {
   padding-bottom: 20px; }
 
 .jumbotron {
-  background: url(../img/sky.jpg); }
+  background: url(../img/sky.jpg);
+  font-weight: 800; }
 
 /*# sourceMappingURL=main.css.map */

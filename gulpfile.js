@@ -45,3 +45,8 @@ gulp.task('lint', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
+
+gulp.task('default', ['sass'], function () {
+    gulp.watch("scss/**/*.scss", ['sass']);
+    gulp.watch('js/src/**/*.js', ['lint', 'minify']);
+});
