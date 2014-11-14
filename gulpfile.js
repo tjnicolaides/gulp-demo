@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var order = require("gulp-order");
-
+var smushit 	= require('gulp-smushit');
 
 // Concat & Minify JS
 gulp.task('minify', function(){
@@ -32,3 +32,8 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('css'));
 });
 
+gulp.task('smush', function () {
+    return gulp.src('img/*.{jpg,png}')
+        .pipe(smushit())
+        .pipe(gulp.dest('img'));
+});
