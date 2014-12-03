@@ -3,5 +3,9 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    //background: brown;
+}
+
+.jumbotron {
+	background: url('../img/earth.jpg') 50% 50% no-repeat #000;
+	color: #fff;
 }
