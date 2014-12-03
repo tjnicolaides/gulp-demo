@@ -49,3 +49,5 @@ gulp.task('default', ['sass'], function(){
 	gulp.watch('scss/**/*.scss', ['sass']);
 	gulp.watch('js/src/**/*.js', ['lint', 'minify']);
 });
+
+gulp.task('build', ['clean', 'sass', 'smush', 'lint', 'minify']);
