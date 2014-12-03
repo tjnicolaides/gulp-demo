@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var order = require('gulp-order');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var jshint = require('gulp-jshint');
 
 gulp.task('sass', function () {
     return gulp.src('scss/main.scss')
@@ -29,6 +30,13 @@ gulp.task('minify', function(){
 		.pipe(gulp.dest('js/dist'));
 	
 });
+
+gulp.task('lint', function() {
+  return gulp.src(['js/src/**/*.js', '!js/src/vendor/*.js']) 
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
 
 gulp.task('default', function(){
 	console.log('hello world!');

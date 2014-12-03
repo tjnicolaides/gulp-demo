@@ -16,6 +16,7 @@
   "devDependencies": {
     "del": "^1.0.0",
     "gulp-concat": "^2.4.2",
+    "gulp-jshint": "^1.9.0",
     "gulp-order": "^1.1.1",
     "gulp-rename": "^1.2.0",
     "gulp-ruby-sass": "^0.7.1",
