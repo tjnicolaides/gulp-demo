@@ -55,7 +55,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('default', ['sass', 'browser-sync'], function(){
 	gulp.watch('scss/**/*.scss', ['sass']);
-	gulp.watch('js/src/**/*.js', ['lint', 'minify']);
+	gulp.watch('js/src/**/*.js', ['lint', 'minify', reload]);
 });
 
 gulp.task('build', ['clean', 'sass', 'smush', 'lint', 'minify']);
