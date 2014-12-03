@@ -6,6 +6,7 @@ var order = require('gulp-order');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
+var smushit = require('gulp-smushit');
 
 gulp.task('sass', function () {
     return gulp.src('scss/main.scss')
@@ -35,6 +36,12 @@ gulp.task('lint', function() {
   return gulp.src(['js/src/**/*.js', '!js/src/vendor/*.js']) 
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
+});
+
+gulp.task('smush', function () {
+    return gulp.src('img/*.{jpg,png}')
+        .pipe(smushit())
+        .pipe(gulp.dest('img'));
 });
 
 
