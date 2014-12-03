@@ -1,0 +1,19 @@
+{
+  "name": "gulp-demo",
+  "version": "1.1.0",
+  "description": "A demo project showing off gulp.js",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjnicolaides/gulp-demo.git"
+  },
+  "author": "TJ Nicolaides",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjnicolaides/gulp-demo/issues"
+  },
+  "homepage": "https://github.com/tjnicolaides/gulp-demo",
+  "devDependencies": {
+
+  }
+}
