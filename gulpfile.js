@@ -7,12 +7,15 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var smushit = require('gulp-smushit');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 gulp.task('sass', function () {
     return gulp.src('scss/main.scss')
     	.pipe(sass())
         .on('error', function (err) { console.log(err.message); })
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('css'))
+        .pipe(reload({stream: true}));
 });
 
 gulp.task('clean', function (cb) {
@@ -44,8 +47,13 @@ gulp.task('smush', function () {
         .pipe(gulp.dest('img'));
 });
 
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: "gulp_project.dev"
+    });
+});
 
-gulp.task('default', ['sass'], function(){
+gulp.task('default', ['sass', 'browser-sync'], function(){
 	gulp.watch('scss/**/*.scss', ['sass']);
 	gulp.watch('js/src/**/*.js', ['lint', 'minify']);
 });
