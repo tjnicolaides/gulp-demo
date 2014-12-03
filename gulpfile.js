@@ -45,6 +45,6 @@ gulp.task('smush', function () {
 });
 
 
-gulp.task('default', function(){
-	console.log('hello world!');
+gulp.task('default', ['sass'], function(){
+	gulp.watch('scss/**/*.scss', ['sass']);
 });
